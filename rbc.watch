@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# The player should support .m3u8 format: mplayer, mpv etc.
+# MPV by default
+PLAYER="mpv"
+
+# Links to .m3u8 files
+p224="http://online-video.rbc.ru/online/rbctv_224p/index.m3u8"
+p480="http://online.video.rbc.ru/online/rbctv_480p/index.m3u8"
+
+# Showing help
+function showhelp {
+    echo -e "Usage:"
+    echo -e "  only one arg is needed: resolution"
+    echo -e "  supported sizes:"
+    echo -e "    2 = 224p"
+    echo -e "    4 = 480p"
+    echo -e "\nExample: rbc.watch 2"
+}
+
+
+# Minimum 1 args
+[ "$#" -ne 1 ] && { showhelp && exit 0; }
+
+case "$1" in
+    "2")
+        SIZE=$p224
+     ;;
+    "4")
+        SIZE=$p480
+     ;;
+    *)
+        showhelp && exit 0 # show the help in other cases
+     ;;
+esac
+
+COMMAND=$PLAYER" "$SIZE
+exec $COMMAND
