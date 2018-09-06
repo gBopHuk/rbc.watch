@@ -10,9 +10,11 @@ Shell script for watching rbc.tv - https://www.rbc.ru
 3. Copy to your $PATH
 
 ## Run
-`$ rbc.watch 2`
+* Run without args showing help
+ 
+* `$ rbc.watch 2` runs `mpv http://online-video.rbc.ru/online/rbctv_224p/index.m3u8`
 
-It runs `mpv http://online-video.rbc.ru/online/rbctv_224p/index.m3u8`
+
 
 ## Customize
 
